@@ -1,0 +1,22 @@
+[package]
+name = "clr_profiler_dummy"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+cargo-features = ["strip"]
+
+[profile.release]
+lto = true 
+opt-level = 2
+codegen-units = 1
+panic = 'abort'
+
+[dependencies]
+clr_profiler = { git="https://github.com/weidingerhp/clr-profiler", branch="master" }
+uuid = "0.8"
+alloc-stdlib = "0.2.1"
+log = "0.4"
+simple_logger = "1.13"
